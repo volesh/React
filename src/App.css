@@ -1,7 +1,36 @@
-.App {
+.simpsons{
+  width: 100%;
   text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 
+.rickMorti{
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.item{
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+}
+.Name{
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+  margin: 30px 0px;
+}
+.simpsonsBlock{
+  border: 1px solid black;
+  width: 250px;
+  text-align: center;
+  margin-bottom: 10px;
+  height: 400px;
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
