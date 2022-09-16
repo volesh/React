@@ -1,9 +1,12 @@
 
 export default function User(props){
-    let {user} = props
-
+    let {user, x} = props
     return(<div>
-            {user.id}
+            <div>{user.id} - {user.name}</div>
+            <button onClick={()=>{
+                x(user)
+            }}>Address</button>
+
         </div>
     )
 }
