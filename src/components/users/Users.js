@@ -3,9 +3,10 @@ import User from "./User";
 export default function Users(){
     let users = AllUsers
 
-    let
 
-    return(<div>
-        {users.map(user => <User user={user} key={user.id}/>)}
+    return(<div className={'container'}>
+        <div className={'users'}>
+            {users.map(user => <User user={user} key={user.id}/>)}
+        </div>
     </div>)
 }
