@@ -1,0 +1,26 @@
+.wrap{
+    display: flex;
+    justify-content: space-around;
+}
+.users{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    background: aqua;
+    border: 1px solid black;
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    text-align: center;
+    background: aqua;
+    border: 1px solid black;
+}
+.button{
+    width: 100%;
+}
