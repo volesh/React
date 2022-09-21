@@ -13,10 +13,12 @@ const Cars = () => {
 
     useEffect(()=>{
         carsService.getAll().then(value => setCars(value.data))
-    },[])
+    },[cars])
 
     const togle = () => {
+
         setBtn(!btn)
+
     }
 
     const del = async (id) => {

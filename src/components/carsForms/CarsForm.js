@@ -8,23 +8,30 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
     const {register, handleSubmit, reset, formState:{errors, isValid}, setValue} = useForm({mode:'all'})
 
     const submit = async (car) => {
-        if (id){
-            const {data} = await carsService.updateById(id, car)
+        if (id && btn){
+            const {} = await carsService.updateById(id, car)
             setCars(cars=>[...cars])
             togle()
             reset()
         }else{
             const {data} = await carsService.create(car);
             setCars(cars=>[...cars, data])
-            reset()
+
         }
 
     }
     useEffect(()=>{
-        setValue('model', model)
-        setValue('year', year)
-        setValue('price', price)
-    },[id])
+        if (btn){
+            setValue('model', model)
+            setValue('year', year)
+            setValue('price', price)
+        }else{
+            setValue('model', '')
+            setValue('year', '')
+            setValue('price', '')
+        }
+
+    },[id, btn])
 
 
     return (
@@ -32,7 +39,7 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
             <input type="text" placeholder={'model'} {...register('model')}/>
             <input type="number" placeholder={'price'} {...register('price', {valueAsNumber: true})}/>
             <input type="number " placeholder={'year'} {...register('year', {valueAsNumber: true})}/>
-            <button disabled={!isValid}>{btn?<div>Update</div>:<div>Save</div>}</button>
+            <button disabled={!isValid}>{btn?'Update':'Save'}</button>
         </form>
     );
 };
