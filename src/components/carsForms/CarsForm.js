@@ -30,7 +30,6 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
             setValue('year', '')
             setValue('price', '')
         }
-
     },[id, btn])
 
 
