@@ -8,16 +8,16 @@ import css from './Cars.module.css'
 
 const Cars = () => {
     let [cars, setCars] = useState([])
-    let [togle, setTogle] = useState(false)
     let [car, setCar] = useState({})
-
-    const togl = () => {
-        setTogle(!togle)
-    }
+    let [btn, setBtn] = useState(false)
 
     useEffect(()=>{
         carsService.getAll().then(value => setCars(value.data))
     },[])
+
+    const togle = () => {
+        setBtn(!btn)
+    }
 
     const del = async (id) => {
         await carsService.deleteById(id)
@@ -32,22 +32,18 @@ const Cars = () => {
     const getCar = (id) => {
         carsService.getById(id).then(value => setCar(value.data))
     }
-    const update = (id, car) => {
-      carsService.updateById(id, car)
-
-    }
 
 
     return (
         <div className={'wrapper'}>
 
             <div className={'forms'}>
-                <CarsForm setCars={setCars} togl={togl} togle={togle} update={update} carr={car}/>
+                <CarsForm setCars={setCars} carr={car} togle={togle} btn={btn}/>
             </div>
 
             <hr/>
             <div className={css.Cars}>
-                {cars.map(car=> <Car key={car.id} car={car} del={del} togl={togl} getCar={getCar}/>)}
+                {cars.map(car=> <Car key={car.id} car={car} del={del} getCar={getCar} togle={togle}/>)}
             </div>
         </div>
     );

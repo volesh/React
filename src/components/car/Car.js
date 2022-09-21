@@ -3,7 +3,7 @@ import React from 'react';
 import css from './Car.module.css'
 import {carsService} from "../../services";
 
-const Car = ({car, del, togl, getCar}) => {
+const Car = ({car, del, togle, getCar}) => {
 
     const {id, model, price, year} = car
 
@@ -21,7 +21,7 @@ const Car = ({car, del, togl, getCar}) => {
                 <button onClick={() => del(id)}>Delete</button>
                 <button onClick={() => {
                     getCar(id)
-                    togl()
+                    togle()
                 }}>Update</button>
             </div>
         </div>
