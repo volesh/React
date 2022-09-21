@@ -3,19 +3,11 @@ import React from 'react';
 import css from './Car.module.css'
 import {carsService} from "../../services";
 
-const Car = ({car, setCars}) => {
+const Car = ({car, del, togl, getCar}) => {
 
     const {id, model, price, year} = car
 
-    const del = async () => {
-        await carsService.deleteById(id)
-        setCars(cars=>{
-            const index = cars.findIndex(value => value.id === id)
-            cars.splice(index, 1)
-            console.log(index);
-            return [...cars]
-        })
-    }
+
 
     return (
         <div className={css.carBlock}>
@@ -26,8 +18,11 @@ const Car = ({car, setCars}) => {
                 <div>Year. {car.year}</div>
             </div>
             <div className={css.btnBlock}>
-                <button onClick={() => del()}>Delete</button>
-                <button>Update</button>
+                <button onClick={() => del(id)}>Delete</button>
+                <button onClick={() => {
+                    getCar(id)
+                    togl()
+                }}>Update</button>
             </div>
         </div>
     );

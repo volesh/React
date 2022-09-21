@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {carsService} from "../../services";
 
 
-const CarsForm = ({setCars}) => {
+const CarsForm = ({setCars, carr}) => {
+    let {id, price, model, year} = carr
     const {register, handleSubmit, reset, formState:{errors, isValid}, setValue} = useForm({mode:'all'})
 
     const submit = async (car) => {
-        const {data} = await carsService.create(car);
-        setCars(cars=>[...cars, data])
+        if (id){
+            const {data} = await carsService.updateById(id, car)
+            setCars(cars=>[...cars])
+            reset()
+        }else{
+            const {data} = await carsService.create(car);
+            setCars(cars=>[...cars, data])
+            reset()
+        }
 
     }
+    useEffect(()=>{
+        setValue('model', model)
+        setValue('year', year)
+        setValue('price', price)
+    },[id])
+
 
     return (
         <form onSubmit={handleSubmit(submit)}>
