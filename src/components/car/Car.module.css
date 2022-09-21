@@ -1,0 +1,14 @@
+.carBlock{
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+}
+.car{
+    display: inline-block;
+    width: 250px;
+}
+.btnBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

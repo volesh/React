@@ -1,0 +1,8 @@
+.Cars{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 400px;
+
+
+}
