@@ -41,21 +41,21 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
 
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form className={css.form} onSubmit={handleSubmit(submit)}>
 
             <div>
                 <div className={css.input}>
-                    <input type="text" placeholder={'model'} {...register('model')}/><br/>
+                    <input className={css.inputColor} autoComplete={'off'} type="text" placeholder={'model'} {...register('model')}/><br/>
                     <div className={css.spanDiv}>{errors.model&&<span className={css.span}>{errors.model.message}</span>}</div>
                 </div>
 
                 <div className={css.input}>
-                    <input type="number" placeholder={'price'} {...register('price', {valueAsNumber: true})}/><br/>
+                    <input className={css.inputColor} autoComplete={'off'} type="number" placeholder={'price'} {...register('price', {valueAsNumber: true})}/><br/>
                     <div className={css.spanDiv}>{errors.price&&<span className={css.span}>{errors.price.message}</span>}</div>
                 </div>
 
                 <div className={css.input}>
-                    <input type="number " placeholder={'year'} {...register('year', {valueAsNumber: true})}/><br/>
+                    <input className={css.inputColor} type="year" autoComplete={'off'} placeholder={'year'} {...register('year', {valueAsNumber: true})}/><br/>
                     <div className={css.spanDiv}>{errors.year&&<span className={css.span}>{errors.year.message}</span>}</div>
                 </div>
             </div>

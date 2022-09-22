@@ -1,21 +1,39 @@
 .input{
     display: inline-block;
     margin: 0px 10px;
+
 }
+.inputColor{
+    background: rgba(0, 128,128,40%);
+}
+
 .span{
     font-size: 10px;
     color: red;
     display: inline-block;
     position: absolute;
+    width: 200px;
+    align-items: start;
+
 }
 .spanDiv{
     height: 30px;
     position: relative;
+    width: 150px;
+    text-align: start;
 }
 .btn{
     width: 565px;
     font-size: 18px;
 }
-.btn:hover{
+
+.btn:enabled{
+    background: teal;
+}
+.btn:enabled:hover{
     cursor: pointer;
+}
+.form{
+    text-align: center;
+
 }

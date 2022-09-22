@@ -37,7 +37,7 @@ const Cars = () => {
 
 
     return (
-        <div className={'wrapper'}>
+        <div className={css.wrapper}>
 
             <div className={'forms'}>
                 <CarsForm setCars={setCars} carr={car} togle={togle} btn={btn}/>

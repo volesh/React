@@ -12,14 +12,14 @@ const Car = ({car, del, togle, getCar}) => {
     return (
         <div className={css.carBlock}>
             <div className={css.car}>
-                <div>Id. {car.id}</div>
-                <div>Model. {car.model}</div>
-                <div>Price. {car.price}</div>
-                <div>Year. {car.year}</div>
+                <div>Id - {car.id}</div>
+                <div>Model - {car.model}</div>
+                <div>Price - {car.price}$</div>
+                <div>Year - {car.year}</div>
             </div>
             <div className={css.btnBlock}>
-                <button onClick={() => del(id)}>Delete</button>
-                <button onClick={() => {
+                <button className={css.btn} onClick={() => del(id)}>Delete</button>
+                <button className={css.btn} onClick={() => {
                     getCar(id)
                     togle()
                 }}>Update</button>
