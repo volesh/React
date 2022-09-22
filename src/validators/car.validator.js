@@ -1,4 +1,4 @@
-import Joi, {date} from "joi";
+import Joi from "joi";
 
 const carValidator = Joi.object({
     model: Joi.string().regex(/^[a-zA-ZА-яїЇєЄйЙіІгГ]{1,20}$/).required().messages({
