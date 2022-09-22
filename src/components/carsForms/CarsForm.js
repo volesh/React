@@ -32,7 +32,7 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
 
     }
     useEffect(()=>{
-        if (btn){
+        if (carr, btn){
             setValue('model', model)
             setValue('year', year)
             setValue('price', price)
@@ -41,7 +41,7 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
             setValue('year', '')
             setValue('price', '')
         }
-    },[id, btn])
+    },[carr])
 
 
     return (
@@ -60,7 +60,7 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
                         label="Price"
                         id="outlined-start-adornment"
                         InputProps={{
-                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                            endAdornment: <InputAdornment position="end">$</InputAdornment>,
                         }}
                     /><br/>
                     <div className={css.spanDiv}>{errors.price&&<span className={css.span}>{errors.price.message}</span>}</div>
@@ -72,7 +72,7 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
                 </div>
             </div>
 
-            <Button variant={'outlined'} className={css.btn} disabled={!isValid}>{btn?'Update':'Save'}</Button>
+            <button className={css.btn} disabled={!isValid}>{btn?'Update':'Save'}</button>
         </form>
     );
 };
