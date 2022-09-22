@@ -1,7 +1,11 @@
 import React, {useEffect} from 'react';
 import {joiResolver} from "@hookform/resolvers/joi";
-
+import {TextField} from "@mui/material";
 import {useForm} from "react-hook-form";
+import {InputAdornment} from "@mui/material";
+import {Button, Stack} from "@mui/material";
+
+
 import {carsService} from "../../services";
 import {carValidator} from "../../validators";
 import css from './carsForm.module.css'
@@ -45,22 +49,30 @@ const CarsForm = ({setCars, carr, togle, btn}) => {
 
             <div>
                 <div className={css.input}>
-                    <input className={css.inputColor} autoComplete={'off'} type="text" placeholder={'model'} {...register('model')}/><br/>
+                    <TextField className={css.input} id="outlined-basic" label="Model" variant="outlined" autoComplete={'off'} {...register('model')}/> <br/>
                     <div className={css.spanDiv}>{errors.model&&<span className={css.span}>{errors.model.message}</span>}</div>
                 </div>
 
                 <div className={css.input}>
-                    <input className={css.inputColor} autoComplete={'off'} type="number" placeholder={'price'} {...register('price', {valueAsNumber: true})}/><br/>
+                    <TextField
+                        autoComplete={'off'}
+                        {...register('price')}
+                        label="Price"
+                        id="outlined-start-adornment"
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                        }}
+                    /><br/>
                     <div className={css.spanDiv}>{errors.price&&<span className={css.span}>{errors.price.message}</span>}</div>
                 </div>
 
                 <div className={css.input}>
-                    <input className={css.inputColor} type="year" autoComplete={'off'} placeholder={'year'} {...register('year', {valueAsNumber: true})}/><br/>
+                    <TextField autoComplete={'off'} id="outlined-basic" label="Year" variant="outlined" {...register('year')}/><br/>
                     <div className={css.spanDiv}>{errors.year&&<span className={css.span}>{errors.year.message}</span>}</div>
                 </div>
             </div>
 
-            <button className={css.btn} disabled={!isValid}>{btn?'Update':'Save'}</button>
+            <Button variant={'outlined'} className={css.btn} disabled={!isValid}>{btn?'Update':'Save'}</Button>
         </form>
     );
 };

@@ -1,7 +1,9 @@
 import React from 'react';
+import {Button, Stack} from "@mui/material";
+
 
 import css from './Car.module.css'
-import {carsService} from "../../services";
+
 
 const Car = ({car, del, togle, getCar}) => {
 
@@ -18,11 +20,11 @@ const Car = ({car, del, togle, getCar}) => {
                 <div>Year - {car.year}</div>
             </div>
             <div className={css.btnBlock}>
-                <button className={css.btn} onClick={() => del(id)}>Delete</button>
-                <button className={css.btn} onClick={() => {
+                <Button className={css.btn} variant={'outlined'} color={'error'} onClick={() => del(id)}>Delete</Button>
+                <Button className={css.btn}  variant={'outlined'} onClick={() => {
                     getCar(id)
                     togle()
-                }}>Update</button>
+                }}>Update</Button>
             </div>
         </div>
     );

@@ -1,34 +1,32 @@
 .carBlock{
-    border: 1px solid;
+    border: 1px solid grey;
     display: flex;
     text-align: center;
     flex-direction: column;
     justify-content: space-around;
-    background: cadetblue;
     height: 300px;
 
 }
 .car{
     display: inline-block;
     width: 250px;
-    color: white;
     font-size: 20px;
     font-weight: bold;
 
 }
-.btn{
-    background: #14d2d2;
-    width: 100%;
-    color: white;
-    font-size: 16px;
-}
+
 .btn:hover{
     cursor: pointer;
+}
+.btn{
+    width: 80%;
 }
 .btnBlock{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     width: 100%;
     gap: 10px;
 }
