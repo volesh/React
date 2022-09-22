@@ -1,0 +1,21 @@
+.input{
+    display: inline-block;
+    margin: 0px 10px;
+}
+.span{
+    font-size: 10px;
+    color: red;
+    display: inline-block;
+    position: absolute;
+}
+.spanDiv{
+    height: 30px;
+    position: relative;
+}
+.btn{
+    width: 565px;
+    font-size: 18px;
+}
+.btn:hover{
+    cursor: pointer;
+}
