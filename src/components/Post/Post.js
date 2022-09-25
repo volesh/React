@@ -19,8 +19,7 @@ const Post = () => {
     return (
         <div>
             <h2>Post</h2>
-            <p><b>Post title</b> - {post.title}</p>
-            <p><b>Post id</b> - {post.id}</p>
+            <p>{JSON.stringify(post)}</p>
             <h2>Post Comments</h2>
             <div>
                 {comments.map(coment=><CommentV2 key={coment.id} comment={coment}/>)}
