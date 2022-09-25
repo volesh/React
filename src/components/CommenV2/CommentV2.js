@@ -5,7 +5,6 @@ const CommentV2 = ({comment}) => {
     return (
         <div>
             <p>{JSON.stringify(comment)}</p>
-            <h3></h3>
             <hr/>
         </div>
     );

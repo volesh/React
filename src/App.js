@@ -1,4 +1,5 @@
-import {Link, Route, Routes} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
+import css from './App.css'
 
 import {Todos} from "./components/todos/Todos";
 import {Albums} from "./components/albums/Albums";
@@ -10,9 +11,9 @@ function App() {
       <div>
 
           <ul>
-              <li><Link to={'/todos'}>Todos</Link></li>
-              <li><Link to={'/albums'}>Albums</Link></li>
-              <li><Link to={'/comments'}>Comments</Link></li>
+              <li><NavLink className={'nav'} to={'/todos'}>Todos</NavLink></li>
+              <li><NavLink className={'nav'} to={'/albums'}>Albums</NavLink></li>
+              <li><NavLink className={'nav'} to={'/comments'}>Comments</NavLink></li>
           </ul>
 
           <Routes>
