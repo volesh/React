@@ -20,7 +20,7 @@ function App() {
               <Route path={'todos'} element={<Todos/>}/>
               <Route path={'albums'} element={<Albums/>}/>
               <Route path={'comments'} element={<Comments/>}/>
-              <Route path={'post'} element={<Post/>}/>
+              <Route path={'post/:id'} element={<Post/>}/>
           </Routes>
       </div>
 

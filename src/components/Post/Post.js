@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from "react";
 import {apiService} from "../../services";
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {CommentV2} from "../CommenV2/CommentV2";
 
 const Post = () => {
-    let {state} = useLocation();
+    let {id} = useParams()
     let [post, setPost] = useState({})
     let [comments, setCommenst] = useState([])
 
     useEffect(()=>{
-        apiService.getPostById(state.id).then(value => setPost(value.data))
+        apiService.getPostById(id).then(value => setPost(value.data))
     },[])
 
     useEffect(()=>{
-        apiService.getCommentsById(state.id).then(value => setCommenst(value.data))
-    },[])
+        apiService.getCommentsById(id).then(value => setCommenst(value.data))
+    },[id])
 
     return (
         <div>
