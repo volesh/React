@@ -4,7 +4,8 @@ import {Link} from "react-router-dom";
 const CommentV2 = ({comment}) => {
     return (
         <div>
-            <h5>{comment.name}</h5>
+            <p>{JSON.stringify(comment)}</p>
+            <h3></h3>
             <hr/>
         </div>
     );
