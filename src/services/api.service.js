@@ -5,7 +5,8 @@ const apiService = {
     getTodos:()=>axiosService.get(url.todos),
     getComments:()=>axiosService.get(url.comments),
     getAlbus:()=>axiosService.get(url.albums),
-    getPostById:(id)=>axiosService.get(`${url.posts}/${id}`)
+    getPostById:(id)=>axiosService.get(`${url.posts}/${id}`),
+    getCommentsById:(id)=>axiosService.get(`${url.comments}?postId=${id}`)
 };
 
 export {apiService}

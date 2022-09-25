@@ -13,7 +13,7 @@ const Post = () => {
     },[])
 
     useEffect(()=>{
-        apiService.getComments().then(value => setCommenst(value.data.filter(comment=>comment.postId === state.id)))
+        apiService.getCommentsById(state.id).then(value => setCommenst(value.data))
     },[])
 
     return (
