@@ -1,0 +1,13 @@
+.low{
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+
+}
+.inputDiv{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 100px;
+}
