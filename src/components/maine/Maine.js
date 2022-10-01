@@ -26,10 +26,8 @@ const reducer =  (state, action) => {
 }
 
 const Maine = () => {
+
     const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
-
-
-
 
     return (
         <div>
@@ -39,6 +37,8 @@ const Maine = () => {
                     <div>Dogs {<Dog dispatch={dispatch}/>}</div>
                 </div>
             </div>
+
+
             <div className={css.low}>
                 <div>
                     {state.cats.map((cat, index) => <div>{cat} <button onClick={() => dispatch({id:'catDel', index:index})}>Delete</button></div>)}
