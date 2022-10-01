@@ -1,5 +1,4 @@
 import React, {useReducer} from "react";
-import {useForm} from "react-hook-form";
 
 import {Cat} from "../cat/Cat";
 import {Dog} from "../dog/Dog";
@@ -27,7 +26,6 @@ const reducer =  (state, action) => {
 }
 
 const Maine = () => {
-    let {register, handleSubmit} = useForm()
     const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
 
@@ -37,8 +35,8 @@ const Maine = () => {
         <div>
             <div>
                 <div className={css.inputDiv}>
-                    <div>Cats {<Cat dispatch={dispatch} state={state}/>}</div>
-                    <div>Dogs {<Dog dispatch={dispatch} state={state}/>}</div>
+                    <div>Cats {<Cat dispatch={dispatch}/>}</div>
+                    <div>Dogs {<Dog dispatch={dispatch}/>}</div>
                 </div>
             </div>
             <div className={css.low}>

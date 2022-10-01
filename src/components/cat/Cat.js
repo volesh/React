@@ -5,7 +5,6 @@ const Cat = ({dispatch}) => {
     const {handleSubmit, register, reset, formState:{isValid}} = useForm()
 
     const submit = (val) =>{
-        console.log({...val, id:'cat'})
         dispatch({...val, id:'cat'})
         reset()
     }
