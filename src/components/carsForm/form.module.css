@@ -1,0 +1,16 @@
+.maine{
+    margin: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px
+}
+.input{
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+}
+.btn{
+    width: 15%;
+    border-radius: 10px;
+}
