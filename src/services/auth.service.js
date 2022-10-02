@@ -8,7 +8,7 @@ const _refreshKey = 'refresh'
 const authService = {
     register:(user) => axiosService.post(urls.users, user),
     login:(user)=> axiosService.post(urls.auth.login, user),
-    refresh:(token)=>axiosService.post(urls.auth.refresh, {token}),
+    refresh:(refresh)=>axiosService.post(urls.auth.refresh, {refresh}),
 
     setTokens:({access, refresh})=>{
         localStorage.setItem(_accessKey, access)

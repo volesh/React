@@ -1,7 +1,8 @@
 import {Navigate, Route, Routes} from "react-router-dom";
 
 import {MaineLayaut} from "./layauts/maineLayaut/MaineLayaut";
-import {Register, Login, Cars} from "./components";
+import {Register, Login} from "./components";
+import {CarsPage} from "./pages/carsPage/CarsPage";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         <Route index element={<Navigate to={'/login'}/>}/>
         <Route path={'/register'} element={<Register/>}/>
         <Route path={'/login'} element={<Login/>}/>
-        <Route path={'/cars'} element={<Cars/>}/>
+        <Route path={'/cars'} element={<CarsPage/>}/>
       </Route>
     </Routes>
   );

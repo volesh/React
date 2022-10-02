@@ -1,0 +1,7 @@
+.carsDiv{
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
