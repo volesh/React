@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 
 import {carsService} from "../../services";
 import css from './car.module.css'
 
-const Car = ({car, setCars}) => {
+const Car = ({car, setUbdCar, setCars, id, setId, setFlag}) => {
+
 
     const sendPhoto = async (e) =>{
         const formData = new FormData();
@@ -16,6 +17,29 @@ const Car = ({car, setCars}) => {
         }
         )
     }
+
+    const delCar = (id) =>{
+        carsService.delById(id)
+        setCars(car=>{
+            const index = car.findIndex(value => value.id === id)
+            car.splice(index, 1)
+            return [...car]
+        })
+    }
+
+    const update = (val) =>{
+        if(id !== val){
+            setId(val)
+            setFlag(true)
+            setUbdCar({...car})
+        }else {
+            setFlag(false)
+            setId(null)
+            setUbdCar(null)
+
+        }
+    }
+
     return (
         <div className={css.car}>
             <div>id - {car.id}</div>
@@ -27,6 +51,8 @@ const Car = ({car, setCars}) => {
                 :
                 <input type="file" onChange={sendPhoto}/>
             }
+            <button onClick={() => delCar(car.id)}>Delete</button>
+            <button onClick={()=>update(car.id)}>Update</button>
         </div>
     );
 };

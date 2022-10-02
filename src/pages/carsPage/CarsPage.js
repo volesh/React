@@ -11,6 +11,9 @@ const CarsPage = () => {
     const [prev, setPrev] = useState(null)
     const [next, setNext] = useState(null)
     const [query, setQuery] = useSearchParams({page:'1'})
+    const [id, setId] = useState(null)
+    const [flag, setFlag] = useState(false)
+    const [ubdCar, setUbdCar] = useState(null)
 
     useEffect(()=>{
         carsService.getAll(query.get('page')).then(({data:value}) =>{
@@ -18,7 +21,7 @@ const CarsPage = () => {
             setPrev(value.prev)
             setNext(value.next)
         })
-    },[query])
+    },[query, cars])
 
     const prevPage = ()=>{
         setQuery(value=>({page:+value.get('page') - 1}))
@@ -29,9 +32,9 @@ const CarsPage = () => {
 
     return (
         <div>
-            <CarsForm setCars={setCars} cars={cars}/>
+            <CarsForm setId={setId} setFlag={setFlag} ubdCar={ubdCar} setUbdCar={setUbdCar} setCars={setCars} flag={flag} cars={cars} id={id}/>
             <hr/>
-            <Cars cars={cars} setCars={setCars}/>
+            <Cars setUbdCar={setUbdCar} cars={cars} setCars={setCars} setId={setId} setFlag={setFlag} id={id}/>
             <div className={css.btns}>
                 <button  disabled={!prev} onClick={prevPage}>Prev</button>
                 <button disabled={!next} onClick={nextPage}>Next</button>
