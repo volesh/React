@@ -6,7 +6,8 @@ const CarsForm = ({setCars, cars}) => {
     const {register, handleSubmit, formState:{isValid, errors}, reset} = useForm()
 
     function submit(value) {
-        carsService.createCar(value)
+        const data = carsService.createCar(value)
+        console.log(data);
     }
 
     return (
