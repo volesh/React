@@ -12,7 +12,9 @@ const CarsForm = ({setCars, ubdCar, setUbdCar, flag, setFlag, setId}) => {
         mode:'all'
     })
 
+
     const submit = async (value) => {
+
         if(!flag){
             const {data} = await carsService.createCar(value)
             setCars(cars=>[...cars, data])
@@ -27,7 +29,10 @@ const CarsForm = ({setCars, ubdCar, setUbdCar, flag, setFlag, setId}) => {
 
         }
     }
+
+
     useEffect(()=>{
+
         if(flag && ubdCar){
             setValue('model', ubdCar.model)
             setValue('year', ubdCar.year)
@@ -37,13 +42,16 @@ const CarsForm = ({setCars, ubdCar, setUbdCar, flag, setFlag, setId}) => {
             setValue('year', '')
             setValue('price', '')
         }
+
     },[ubdCar])
 
     return (
         <form className={css.maine} onSubmit={handleSubmit(submit)}>
+
             <input className={css.input} type="text" placeholder={'Model'} {...register('model')}/>
             <input className={css.input} type="text" placeholder={'Price'} {...register('price')}/>
             <input className={css.input} type="text" placeholder={'Year'} {...register('year')}/>
+
             <button className={css.btn} disabled={!isValid}>{!flag?'Save':'Update'}</button>
         </form>
     );

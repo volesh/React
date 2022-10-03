@@ -6,9 +6,11 @@ import css from './login.module.css'
 
 
 const Login = () => {
-    const navigate = useNavigate()
-    const {register, handleSubmit} = useForm()
-    const [query, ] = useSearchParams()
+
+    const navigate = useNavigate();
+    const {register, handleSubmit} = useForm();
+    const [query, ] = useSearchParams();
+
 
     const submit = async (user) => {
         try {
@@ -18,14 +20,19 @@ const Login = () => {
         }catch (e){
             console.log(e);
         }
-    }
+    };
+
 
     return (
         <form className={css.maine} onSubmit={handleSubmit(submit)}>
-            {query.has('expSession') && <p>session end!!!</p>}
+
+            {query.has('expSession')?<p>session end!!!</p>:<p>LogIn</p>}
+
             <input className={css.input} type="text" placeholder={'Login'} {...register('username')}/>
             <input className={css.input} type="text" placeholder={'Password'} {...register('password')}/>
+
             <button className={css.input}>Login</button>
+
         </form>
     );
 };

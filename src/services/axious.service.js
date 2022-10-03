@@ -5,26 +5,29 @@ import {baseURL} from "../configs";
 import {authService} from "./auth.service";
 
 const history = createBrowserHistory()
+let isRefreshing = false
 
 const axiosService = axios.create({baseURL})
-let isRefreshing = false
+
 
 axiosService.interceptors.request.use((config)=>{
     const acces = authService.getAccessToken()
+
     if(acces){
         config.headers.Authorization = `Bearer ${acces}`
     }
     return config
-})
+
+});
 
 axiosService.interceptors.response.use((config)=>{
     return config
+
     },
     async (error)=>{
         const refresh = authService.getRefreshToken()
 
         if(error.response?.status === 401 && refresh && !isRefreshing) {
-
             isRefreshing = true
 
             try {

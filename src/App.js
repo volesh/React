@@ -3,6 +3,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import {MaineLayaut} from "./layauts/maineLayaut/MaineLayaut";
 import {Register, Login} from "./components";
 import {CarsPage} from "./pages/carsPage/CarsPage";
+import {RequaireAuth} from "./hoc";
 
 
 function App() {
@@ -13,7 +14,11 @@ function App() {
         <Route index element={<Navigate to={'/login'}/>}/>
         <Route path={'/register'} element={<Register/>}/>
         <Route path={'/login'} element={<Login/>}/>
-        <Route path={'/cars'} element={<CarsPage/>}/>
+        <Route path={'/cars'} element={
+            <RequaireAuth>
+                <CarsPage/>
+            </RequaireAuth>
+        }/>
       </Route>
     </Routes>
   );
