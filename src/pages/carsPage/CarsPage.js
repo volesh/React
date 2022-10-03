@@ -23,7 +23,7 @@ const CarsPage = () => {
             setPrev(value.prev)
             setNext(value.next)
         })
-    },[query, cars])
+    },[query, ubdCar])
 
 
     const prevPage = ()=>{
