@@ -19,6 +19,7 @@ const Login = () => {
                         <span>Пароль</span>
                         <i></i>
                     </div>
+                    <p className={css.reg}>Регістрація</p>
                     <button className={css.btn}>Ввійти</button>
                 </form>
             </div>

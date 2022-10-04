@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #23242a;
+    background: rgba(35,36,42,100%);
     font-size: 20px;
 }
 .box{
@@ -125,6 +125,15 @@ body{
     z-index: 9;
 }
 
+.reg{
+    position: absolute;
+    right: 40px;
+    margin: 10px 0;
+    font-size: 0.65em;
+    color: #8f8f8f;
+    cursor: pointer;
+}
+
 .form input:valid ~ i,
 .form input:focus ~ i{
     height: 46px;
@@ -137,7 +146,7 @@ body{
     background: #45f3ff;
     padding: 11px 25px;
     width: 100px;
-    margin-top: 40px;
+    margin-top: 45px;
     border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
