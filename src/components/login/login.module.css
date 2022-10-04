@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: rgba(35,36,42,100%);
+    background: rgb(35,36,42);
     font-size: 20px;
 }
 .box{

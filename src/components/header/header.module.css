@@ -1,0 +1,100 @@
+.navigate{
+    width: 400px;
+    height: 70px;
+    background: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.navigate ul{
+    display: flex;
+    width: 350px;
+    padding: 0;
+}
+
+.navigate ul NavLink{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigate ul NavLink a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigate ul NavLink a .icon{
+    position: relative;
+    display: block;
+    line-height: 70px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: #23242a;
+}
+
+.navigate ul NavLink.active a .icon{
+    transform: translateY(-35px);
+}
+
+.navigate ul NavLink a .text{
+    position: absolute;
+    color: #28292d;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigate ul NavLink.active a .text{
+    opacity: 1;
+    transform: translateY(1em);
+}
+
+.indicator{
+    box-sizing: border-box;
+    position: absolute;
+    top: -50%;
+    border: 6px solid #23242a;
+    width: 70px;
+    height: 70px;
+    background: #45f3ff;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 #23242a;
+}
+
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 0px -10px 0 0 #23242a;
+}
