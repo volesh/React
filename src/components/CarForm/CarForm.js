@@ -9,7 +9,7 @@ import {carValidator} from "../../validators/carFormValidation";
 
 
 const CarForm = () => {
-    const {register, handleSubmit, formState:{isValid, errors}, reset, setValue} = useForm({
+    const {register, handleSubmit, formState:{isValid, errors, isDirty}, reset, setValue} = useForm({
         mode:'all',
         resolver: joiResolver(carValidator)
     })
@@ -19,10 +19,11 @@ const CarForm = () => {
     const submit = async (value) => {
         if (!currentCar){
             const data = await dispatch(carActions.addCar(value))
-            reset()
+
         }else{
             await dispatch(carActions.ubdById({id:currentCar.id, car:value}))
         }
+        reset()
     }
 
     useEffect(()=>{
@@ -37,12 +38,15 @@ const CarForm = () => {
         }
     },[currentCar])
 
-
+    console.log(errors);
     return (
         <form onSubmit={handleSubmit(submit)}>
             <input type="text" placeholder={'Model'} {...register('model')}/>
+            {errors.model && isDirty && <span>{errors.model.message}</span>}
             <input type="text" placeholder={'Price'} {...register('price')}/>
+            {errors.price && isDirty && <span>{errors.price.message}</span>}
             <input type="text" placeholder={'Year'} {...register('year')}/>
+            {errors.year && isDirty && <span>{errors.year.message}</span>}
             <button disabled={!isValid}>{currentCar?'update':'save'}</button>
         </form>
     );
