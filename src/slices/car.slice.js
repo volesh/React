@@ -10,7 +10,7 @@ const initialState = {
 
 const getAll = createAsyncThunk(
     'carSlice/getAll',
-    async () => {
+    async (_, {rejectWithValue}) => {
         const {data} = await carService.getAll()
         return data
     }
@@ -39,6 +39,7 @@ const carSlice = createSlice({
     extraReducers:{
         [getAll.fulfilled]:(state, action)=>{
             state.cars = action.payload.data
+
         },
         [createCar.fulfilled]:(state, action)=>{
             state.cars = [...state.cars, action.payload]

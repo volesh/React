@@ -10,9 +10,9 @@ const Login = () => {
     const {register, handleSubmit} = useForm({mode:'all'})
     const dispatch = useDispatch()
 
-    const submit = async (value) =>{
+    const submit = async (user) =>{
         try {
-            await dispatch(userActions.login(value))
+            await dispatch(userActions.login({user}))
             navigate('/cars')
         }catch (e){
             console.log(e);

@@ -1,8 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 import {authService} from "../services";
-import {useNavigate} from "react-router-dom";
-
 
 const initialState = {
     user:{},
@@ -12,10 +10,10 @@ const initialState = {
 
 const login = createAsyncThunk(
     'userSlice/login',
-    async (user, {rejectedWithValue}) =>{
+    async ({user}, {rejectedWithValue, fulfillWithValue}) =>{
         try {
-            const data = authService.login(user)
-            return data
+            const {data} = await authService.login(user)
+            return fulfillWithValue(data)
         }catch (e) {
             return e
         }
@@ -28,8 +26,10 @@ const userSlice = createSlice({
     reducers:{},
     extraReducers:{
         [login.fulfilled]:(state, action) =>{
-            authService.setTokens(action.payload.data)
-
+            authService.setTokens(action.payload)
+        },
+        [login.rejected]:(state, action) =>{
+            console.log(action.payload);
         }
     }
 })

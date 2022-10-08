@@ -6,12 +6,14 @@ import {CarForm} from "../carForm/CarForm";
 
 const Cars = () => {
     const dispatch = useDispatch()
-    const {cars} = useSelector(state => state.carReducer)
+    const {cars, isAuth} = useSelector(state => state.carReducer)
+
 
     useEffect(()=>{
         dispatch(carActions.getAll())
 
-    },[])
+    },[isAuth])
+
 
     return (
         <div>
