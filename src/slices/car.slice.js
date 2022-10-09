@@ -4,33 +4,33 @@ import {carService} from "../services";
 const initialState = {
     cars:[],
     currentCar:{},
-    error:null,
-    loading:false
+    error:null
 }
 
 const getAll = createAsyncThunk(
     'carSlice/getAll',
-    async (_, {rejectWithValue}) => {
-        const {data} = await carService.getAll()
-        return data
+    async (_, {rejectedWithValue, fulfillWithValue})=>{
+        try {
+            const {data} = await carService.getAll()
+            console.log(data.data, 'data');
+            return fulfillWithValue(data.data)
+        }catch (e) {
+            return e
+        }
     }
 )
 
-const createCar = createAsyncThunk(
-    'carSlice/createCar',
-    async (car, {rejectWithValue}) => {
-        const {data} = await carService.createCar(car)
-        return data
-    }
-)
-
-const deleteCar = createAsyncThunk(
-    'carSlice/deleteCar',
-    async (id, {rejectWithValue}) => {
-        await carService.deleteCarById(id)
-        return id
-    }
-)
+// const getCars = createAsyncThunk(
+//     'carSlice/getCars',
+//     async (_, {fulfillWithValue,rejectWithValue}) => {
+//         try {
+//             const {data:{data}} = await carsService.getCars()
+//             return fulfillWithValue(data)
+//         } catch (e) {
+//             return rejectWithValue(e.response.data)
+//         }
+//     }
+// )
 
 const carSlice = createSlice({
     name:'carSlice',
@@ -38,24 +38,20 @@ const carSlice = createSlice({
     reducers:{},
     extraReducers:{
         [getAll.fulfilled]:(state, action)=>{
-            state.cars = action.payload.data
-
+            state.cars = action.payload
         },
-        [createCar.fulfilled]:(state, action)=>{
-            state.cars = [...state.cars, action.payload]
-        },
-        [deleteCar.fulfilled]:(state, action) =>{
-            state.cars = state.cars.filter(car => car.id !== action.payload)
+        [getAll.rejected]:(state, action)=>{
+            console.log(action.payload);
         }
     }
 })
 
+
+
 const {reducer:carReducer, actions:{}} = carSlice
 
 const carActions = {
-    getAll,
-    createCar,
-    deleteCar
+    getAll
 }
 
 export {carReducer, carActions}

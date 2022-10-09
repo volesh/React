@@ -1,23 +1,23 @@
-import {axiosService} from "./axious.service";
+import {axiosService} from "./axios.service";
 import {urls} from "../configs";
 
-const _accessKey = 'access'
-const _refreshKey = 'refresh'
+const _accessToken = 'access'
+const _refreshToken = 'refresh'
 
 const authService = {
     register:(user)=>axiosService.post(urls.users, user),
     login:(user)=>axiosService.post(urls.auth.login, user),
     refresh:(refresh)=>axiosService.post(urls.auth.refresh, {refresh}),
 
-    setTokens:({refresh, access})=>{
-        localStorage.setItem(_accessKey, access)
-        localStorage.setItem(_refreshKey, refresh)
+    setTokens:({access, refresh})=>{
+        localStorage.setItem(_accessToken, access)
+        localStorage.setItem(_refreshToken, refresh)
     },
 
-    getAccessToken:()=>localStorage.getItem(_accessKey),
-    getRefreshToken:()=>localStorage.getItem(_refreshKey),
+    getAccess:()=>localStorage.getItem(_accessToken),
+    getRefresh:()=>localStorage.getItem(_refreshToken),
 
-    detTokens:()=>localStorage.clear()
+    gelTokens:()=>localStorage.clear()
 }
 
 export {authService}
