@@ -3,16 +3,16 @@ import {authService} from "../../services";
 
 const initialState = {
     user:{},
-    isAust: false,
+    isAuth: false,
     error: null
 }
 
 const login = createAsyncThunk(
     'authSlice/login',
-    async (_, {rejectedWithValue})=>{
+    async ({user}, {rejectedWithValue})=>{
         try {
-            const {data} = authService.login()
-            returndata
+            const {data} = await authService.login(user)
+            return data
         }catch (e){
 
         }
@@ -25,6 +25,7 @@ const authSlice =  createSlice({
     extraReducers:{
         [login.fulfilled]:(state, action)=>{
             authService.setTokens(action.payload)
+            state.isAuth = true
         }
     },
     reducers:{}
@@ -32,6 +33,8 @@ const authSlice =  createSlice({
 
 const {reducer:authReducer, actions:{}} = authSlice
 
-const authActions = {}
+const authActions = {
+    login
+}
 
 export {authActions, authReducer}

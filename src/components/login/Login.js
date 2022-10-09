@@ -3,6 +3,8 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 
 import {authService} from "../../services";
 import css from './login.module.css'
+import {useDispatch} from "react-redux";
+import {authActions} from "../../slices";
 
 
 const Login = () => {
@@ -10,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     const {register, handleSubmit} = useForm();
     const [query, ] = useSearchParams();
-
+    const dispatch = useDispatch()
 
     // const submit = async (user) => {
     //     try {
@@ -21,7 +23,10 @@ const Login = () => {
     //         console.log(e);
     //     }
     // };
-    const submit =
+    const submit = async (user) =>{
+        await dispatch(authActions.login({user}))
+        navigate('/cars')
+    }
 
 
     return (
