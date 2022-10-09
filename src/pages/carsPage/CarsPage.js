@@ -4,6 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import {Cars, CarsForm} from "../../components";
 import {carsService} from "../../services";
 import css from './carsPage.module.css'
+import {useSelector} from "react-redux";
 
 
 const CarsPage = () => {

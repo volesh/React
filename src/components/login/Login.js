@@ -12,15 +12,16 @@ const Login = () => {
     const [query, ] = useSearchParams();
 
 
-    const submit = async (user) => {
-        try {
-            const {data} = await authService.login(user)
-            authService.setTokens(data)
-            navigate('/cars')
-        }catch (e){
-            console.log(e);
-        }
-    };
+    // const submit = async (user) => {
+    //     try {
+    //         const {data} = await authService.login(user)
+    //         authService.setTokens(data)
+    //         navigate('/cars')
+    //     }catch (e){
+    //         console.log(e);
+    //     }
+    // };
+    const submit =
 
 
     return (
