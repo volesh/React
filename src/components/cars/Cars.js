@@ -11,10 +11,10 @@ const Cars = () => {
     useEffect(()=>{
         dispatch(carActions.getAll())
     },[])
-    console.log(cars, 'lfsdhafjh');
+
     return (
         <div>
-            {cars&&cars.map(car=><Car key={car.id} car={car}/>)}
+            {cars.map(car=><Car key={car.id} car={car}/>)}
         </div>
     );
 };

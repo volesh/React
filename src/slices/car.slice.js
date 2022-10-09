@@ -12,8 +12,7 @@ const getAll = createAsyncThunk(
     async (_, {rejectedWithValue, fulfillWithValue})=>{
         try {
             const {data} = await carService.getAll()
-            console.log(data.data, 'data');
-            return fulfillWithValue(data.data)
+            return data
         }catch (e) {
             return e
         }
@@ -37,11 +36,8 @@ const carSlice = createSlice({
     initialState,
     reducers:{},
     extraReducers:{
-        [getAll.fulfilled]:(state, action)=>{
-            state.cars = action.payload
-        },
-        [getAll.rejected]:(state, action)=>{
-            console.log(action.payload);
+        [getAll.fulfilled]:(state, action)=> {
+            state.cars = action.payload.data
         }
     }
 })

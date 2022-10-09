@@ -17,7 +17,10 @@ const authService = {
     getAccess:()=>localStorage.getItem(_accessToken),
     getRefresh:()=>localStorage.getItem(_refreshToken),
 
-    gelTokens:()=>localStorage.clear()
+    gelTokens:()=>{
+        localStorage.removeItem(_accessKey)
+        localStorage.removeItem(_refreshKey)
+    }
 }
 
 export {authService}
