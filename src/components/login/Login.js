@@ -5,11 +5,13 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate()
     const {register, handleSubmit} = useForm()
     const dispatch = useDispatch()
 
-    const submit = (data) => {
-        dispatch(authActions.logIn({user:data}))
+    const submit = async (data) => {
+        await dispatch(authActions.logIn({user:data}))
+        navigate('/cars')
     }
 
     return (
