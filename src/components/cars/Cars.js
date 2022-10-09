@@ -6,7 +6,8 @@ const Cars = ({cars, setCars, id, setId, setFlag, setUbdCar}) => {
     return (
 
         <div className={css.carsDiv}>
-            {cars.map(car=> <Car key={car.id} setUbdCar={setUbdCar} car={car} cars={cars} setCars={setCars} setId={setId} setFlag={setFlag} id={id}/>)}
+            {cars.map(car=><Car key={car.id} car={car}/>)}
+            {/*{cars.map(car=> <Car key={car.id} setUbdCar={setUbdCar} car={car} cars={cars} setCars={setCars} setId={setId} setFlag={setFlag} id={id}/>)}*/}
         </div>
     );
 };
