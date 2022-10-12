@@ -11,7 +11,7 @@ const login = createAsyncThunk(
     async ({user}, {rejectWithValue})=>{
         try {
             const {data} = await authService.login(user)
-            return data.data
+            return data
         }catch (e) {
             return e
         }
@@ -24,7 +24,11 @@ const authSlice = createSlice({
     reducers:{},
     extraReducers:{
         [login.fulfilled]:(state, action)=>{
-            console.log(action.payload);
+            authService.setTokens(action.payload)
+            state.isAuth = true
+        },
+        [login.rejected]:(state, action)=>{
+            state.isAuth = false
         }
     }
 })
