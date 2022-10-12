@@ -1,4 +1,4 @@
-interface IRocket{
+interface IRocket<cores, payloads>{
     "mission_name": string,
     "launch_date_local": string,
     "launch_site": {
@@ -11,26 +11,26 @@ interface IRocket{
     "rocket": {
         "rocket_name": string,
         "first_stage": {
-            "cores": [
-                {
-                    "flight": number,
-                    "core": {
-                        "reuse_count": number,
-                        "status": string
-                    }
-                }
-            ]
+            "cores": cores[]
         },
         "second_stage": {
-            "payloads": [
-                {
-                    "payload_type": string,
-                    "payload_mass_kg": number,
-                    "payload_mass_lbs": number
-                }
-            ]
+            "payloads": payloads[]
         }
     }
+}
+
+interface cores {
+    "flight": number,
+    "core": {
+        "reuse_count": number,
+        "status": string
+    }
+}
+
+interface payloads {
+    "payload_type": string,
+    "payload_mass_kg": number,
+    "payload_mass_lbs": number
 }
 
 class User{
