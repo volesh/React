@@ -38,10 +38,10 @@ axiosService.interceptors.response.use((config) => {
             history.replace('/login')
         }
         isRefreshing = false;
-        return axiosService(error.data)
+        return axiosService(error.config)
     }
 
-    return Response.reject(error)
+    return Promise.reject(error)
 
 })
 
