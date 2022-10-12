@@ -51,7 +51,7 @@ function showSum(a:number,b:number):void{
     console.log(a + b);
 }
 
-function incAge(someUser:{age:number}, inc:number): {}{
+function incAge(someUser:{age:number}, inc:number):object{
     someUser.age+=inc
     return someUser
 }
