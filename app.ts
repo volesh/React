@@ -1,25 +1,25 @@
-interface IRocket<cores, payloads>{
+interface IRocket<ICores, IPayloads>{
     "mission_name": string,
     "launch_date_local": string,
     "launch_site": {
         "site_name_long": string
     },
     "links": {
-        "article_link": any,
+        "article_link": null|string,
         "video_link": string
     },
     "rocket": {
         "rocket_name": string,
         "first_stage": {
-            "cores": cores[]
+            "cores": ICores[]
         },
         "second_stage": {
-            "payloads": payloads[]
+            "payloads": IPayloads[]
         }
     }
 }
 
-interface cores {
+interface ICores {
     "flight": number,
     "core": {
         "reuse_count": number,
@@ -27,20 +27,25 @@ interface cores {
     }
 }
 
-interface payloads {
+interface IPayloads {
     "payload_type": string,
     "payload_mass_kg": number,
     "payload_mass_lbs": number
 }
 
-class User{
-    constructor(public name:string, public age:number, public gender:string) {
-         this.name = name;
-         this.gender = gender;
-         this.age = age;
-    }
+interface IUser {
+    name:string,
+    age:number,
+    gender: string
+
 }
-const user = new User('Max', 18, 'male')
+
+const user:IUser = {
+    name:"Max",
+    age:18,
+    gender:'mail'
+}
+
 
 const sum = (a:number,b:number):number =>{
     return a+b

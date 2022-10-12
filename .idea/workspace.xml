@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c1b7847-5769-4e8a-9428-171ff1b052d1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="7c1b7847-5769-4e8a-9428-171ff1b052d1" name="Changes" comment="fin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +50,16 @@
       <option name="presentableId" value="Default" />
       <updated>1665569577604</updated>
       <workItem from="1665569578889" duration="5231000" />
-      <workItem from="1665576237602" duration="651000" />
+      <workItem from="1665576237602" duration="2425000" />
     </task>
+    <task id="LOCAL-00001" summary="fin">
+      <created>1665577401813</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665577401813</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,6 +80,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
