@@ -1,23 +1,16 @@
 import React, {useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 import {Cars, CarsForm} from "../../components";
-import {carsService} from "../../services";
-import css from './carsPage.module.css'
-import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../slices";
 
 
 const CarsPage = () => {
     const {cars} = useSelector(state=>state.carReducer)
     const dispatch = useDispatch()
-    // const [cars, setCars] = useState([])
-    // const [prev, setPrev] = useState(null)
-    // const [next, setNext] = useState(null)
     const [query, setQuery] = useSearchParams({page:'1'})
-    const [id, setId] = useState(null)
-    const [flag, setFlag] = useState(false)
-    const [ubdCar, setUbdCar] = useState(null)
+
 
 
     // useEffect(()=>{

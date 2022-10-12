@@ -1,5 +1,5 @@
 import {createBrowserHistory} from "history"
-import axios from "axios";
+import {axios} from "axios";
 
 import {baseURL} from "../configs";
 import {authService} from "./auth.service";
