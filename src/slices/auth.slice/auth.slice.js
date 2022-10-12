@@ -2,33 +2,31 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {authService} from "../../services";
 
 const initialState = {
-    user:{},
-    isAuth: false,
-    error: null
+    isAuth:false,
+    error:null
 }
 
 const login = createAsyncThunk(
     'authSlice/login',
-    async ({user}, {rejectedWithValue})=>{
+    async ({user}, {rejectWithValue})=>{
         try {
             const {data} = await authService.login(user)
-            return data
-        }catch (e){
-
+            return data.data
+        }catch (e) {
+            return e
         }
     }
 )
 
-const authSlice =  createSlice({
+const authSlice = createSlice({
     name:'authSlice',
     initialState,
+    reducers:{},
     extraReducers:{
         [login.fulfilled]:(state, action)=>{
-            authService.setTokens(action.payload)
-            state.isAuth = true
+            console.log(action.payload);
         }
-    },
-    reducers:{}
+    }
 })
 
 const {reducer:authReducer, actions:{}} = authSlice
@@ -37,4 +35,4 @@ const authActions = {
     login
 }
 
-export {authActions, authReducer}
+export {authReducer, authActions}
