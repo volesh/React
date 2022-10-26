@@ -1,4 +1,4 @@
-import {createSlice, RejectedWithValue, createAsyncThunk} from "@reduxjs/toolkit";
+    import {createSlice, rejectWithValue, createAsyncThunk} from "@reduxjs/toolkit";
 
 import {carService} from "../services";
 
@@ -12,7 +12,7 @@ const initialState = {
 
 const ubdById = createAsyncThunk(
     'carSlice/ubdById',
-    async ({car, id}, {RejectedWithValue}) =>{
+    async ({car, id}, {rejectedWithValue}) =>{
         try {
             const {data} = await carService.updateBuId(id, car)
             return data
